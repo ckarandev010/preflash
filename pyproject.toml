@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "preflash"
+version = "0.1.0"
+description = "Find what your ESP32 firmware left unlocked before you ship it: sdkconfig and source security checks mapped to ETSI EN 303 645, OWASP IoT Top 10 and NISTIR 8259A."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Karandev Chauhan"}]
+keywords = ["esp32", "esp-idf", "iot", "firmware", "security", "en-303-645", "owasp-iot", "static-analysis"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+preflash = "preflash.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
